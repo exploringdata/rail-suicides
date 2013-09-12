@@ -1,5 +1,4 @@
-Changes in rails-suicides data
+# Rail Suicides in Europe
 
-* replaced UK by GB
-* removed CT and EL cols since, not iso2 codes for countries, compare
-  https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2
+A script to do calculations and create a CSV to be used in the article
+[Rail Suicides in Europe 2008 - 2011](exploringdata.github.io/story/rail-suicides-europe/)

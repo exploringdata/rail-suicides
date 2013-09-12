@@ -4,8 +4,8 @@ from geonamescache import GeonamesCache
 gc = GeonamesCache()
 countries = gc.get_countries()
 
-df_suicides = pd.io.parsers.read_csv('rails-suicides-2008-2011.csv')
-df_pop = pd.io.parsers.read_csv('SP.POP.TOTL_Indicator_MetaData_en_EXCEL.csv')
+df_suicides = pd.io.parsers.read_csv('data/rail-suicides-2008-2011.csv')
+df_pop = pd.io.parsers.read_csv('data/SP.POP.TOTL_Indicator_MetaData_en_EXCEL.csv')
 
 relevant_cols = ['Country Code', '2008', '2009', '2010', '2011']
 df_pop = df_pop[relevant_cols]
@@ -44,13 +44,3 @@ df_ratios.columns = df_ratios.columns.map(lambda x: x.replace('_ratio', ''))
 
 df_ratios = df_ratios.sort('2008', ascending=False)
 df_ratios.to_csv('ratios.csv', index=False)
-# sort both data frames by country code before calculating ratios
-#df_pop = df_pop.sort('Country Code')
-#df_suicides = df_suicides.sort('Years')
-
-#for y in range(2008, 2012):
-    #y = str(y)
-    ## guardian data contains null as a value
-    #suicides = df_suicides[y].convert_objects(convert_numeric=True)
-    #pop = df_pop[y].astype('float64')
-    #df_suicides[y + 'x'] = suicides / 100.
